@@ -1,0 +1,23 @@
+.page {
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+#input {
+    margin: 2px;
+    border: none;
+}
+
+#listtitle {
+    margin-bottom: 0px;
+}
+
+#grocerylist {
+    margin-top: 0px;
+}
+
+.listbox {
+    display: -webkit-flex;
+    display: inline-flex;
+    border: 1px solid black;
+}

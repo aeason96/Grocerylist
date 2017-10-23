@@ -1,0 +1,35 @@
+<html>
+
+    <head>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src='index.js'> </script>
+        <link href='index.css' rel='stylesheet' />
+    </head>
+
+    <body>
+        <div class='page'>
+            <h2>Load a Grocery List</h2>  
+            <select id='loadlist'>
+                <option>Select</option>
+            </select>
+            <ul id='loadedlist'></ul>
+            <div id='createlist'>
+                <h2>Create a new Grocery list</h2>  
+                <input id='listname' placeholder='Grocery List Name'> </input>
+                <button id='savename'>Create List</button>
+            </div>
+            <h2 id='listtitle'></h2>
+            <br />
+            <ul id='grocerylist'></ul>
+            <div id='buildlist' >
+                <input id='newitem' placeholder="Add Grocery Item"> </input>
+                <button id='saveitem'>Add Item</button>
+            </div>
+
+        </div>
+    </body>
+
+</html>
