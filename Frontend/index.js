@@ -2,6 +2,7 @@ $( document ).ready(function() {
     var listId = -1;
     var items = []
     $('#buildlist').hide();
+    $('#buildlist2').hide();
     setSelectDropdown();
 
     function setSelectDropdown() {
@@ -21,7 +22,8 @@ $( document ).ready(function() {
 
     $('#loadlist').change(function() {
         setItemsByListId($('#loadlist').val());
-        console.log(items);
+        listId = $('#loadlist').val();
+        $('#buildlist2').show();
     });
 
     function setItemsByListId(id) {
@@ -39,10 +41,23 @@ $( document ).ready(function() {
         });
     }
 
+    $('#saveitem2').click(function() {
+        var name = $('#newitem2').val().toString();
+        console.log(name + ' ' + listId);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000/api/groceryitems/",
+            data: {'name':name, 'grocerylist':listId},
+            success: function(ret) {
+                $('#loadedlist').append('<li>' + name+ '</li>');
+            }
+        });
+    });
+
     function listNameSet() {
         $('#buildlist').show();
-        $('#savename').hide();
-        $('#createlist').hide();
+        //$('#savename').hide();
+        //$('#createlist').hide();
         $('#listtitle').show();
     }
 
@@ -54,6 +69,8 @@ $( document ).ready(function() {
             data: {'name':name},
             success: function(ret) {
                 listId = ret['id'];
+                $('#listtitle').empty();
+                $('#grocerylist').empty();
                 $('#listtitle').append(name);
                 listNameSet();
                 setSelectDropdown();
